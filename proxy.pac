@@ -1,5 +1,11 @@
 function FindProxyForURL(url, host) {
 
+    // Permitir impresora por IP
+    if (host == "10.10.20.10") {
+        return "DIRECT";
+    }
+
+    // Permitir Microsoft 365
     if (shExpMatch(host, "*.office.com") ||
         shExpMatch(host, "*.office365.com") ||
         shExpMatch(host, "*.outlook.office.com") ||
@@ -16,5 +22,6 @@ function FindProxyForURL(url, host) {
         return "DIRECT";
     }
 
+    // Bloquear todo lo demás
     return "PROXY 127.0.0.1:9999";
 }
