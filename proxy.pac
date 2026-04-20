@@ -21,6 +21,15 @@ function FindProxyForURL(url, host) {
         shExpMatch(host, "*.microsoftonline.com") ||
         shExpMatch(host, "*.sharepoint.com") ||
         shExpMatch(host, "*.onedrive.com")
+shExpMatch(host, "*.officeapps.live.com") ||
+shExpMatch(host, "*.officeapps-df.live.com") ||
+shExpMatch(host, "*.view.officeapps.live.com") ||
+shExpMatch(host, "*.word-edit.officeapps.live.com") ||
+shExpMatch(host, "*.excel.officeapps.live.com") ||
+shExpMatch(host, "*.powerpoint.officeapps.live.com") ||
+shExpMatch(host, "*.wopi.officeapps.live.com") ||
+shExpMatch(host, "*.usercontent.microsoft") ||
+shExpMatch(host, "*.cdn.office.net")
     ) {
         return "DIRECT";
     }
