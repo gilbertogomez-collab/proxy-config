@@ -13,23 +13,25 @@ function FindProxyForURL(url, host) {
         return "DIRECT";
     }
 
-    // Solo Outlook + autenticación + adjuntos
+    // Microsoft + Outlook
     if (
         shExpMatch(host, "*.outlook.office.com") ||
-        shExpMatch(host, "*.outlook.office365.com") ||
         shExpMatch(host, "*.cloud.microsoft") ||
         shExpMatch(host, "*.office.com") ||
         shExpMatch(host, "*.microsoftonline.com") ||
-        shExpMatch(host, "*.office.net") ||
-        shExpMatch(host, "*.office365.com") ||
-        shExpMatch(host, "*.officeapps.live.com") ||
-        shExpMatch(host, "*.onecdn.static.microsoft") ||
-        shExpMatch(host, "*.msocdn.com") ||
         shExpMatch(host, "*.sharepoint.com") ||
-        shExpMatch(host, "*.sharepoint-df.com") ||
-        shExpMatch(host, "*.onedrive.com") ||
-        shExpMatch(host, "*.attachments.office.net") ||
-        shExpMatch(host, "*.substrate.office.com")
+        shExpMatch(host, "*.onedrive.com")
+    ) {
+        return "DIRECT";
+    }
+
+    // Gmail + login + adjuntos
+    if (
+        host == "mail.google.com" ||
+        host == "accounts.google.com" ||
+        shExpMatch(host, "*.googleusercontent.com") ||
+        shExpMatch(host, "*.gstatic.com") ||
+        shExpMatch(host, "*.googleapis.com")
     ) {
         return "DIRECT";
     }
